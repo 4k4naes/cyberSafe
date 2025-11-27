@@ -1,0 +1,19 @@
+package com.example.cybersafeapp.ui.screens
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.example.cybersafeapp.R
+
+class CyberNewsFragment : Fragment() {
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_cyber_news, container, false)
+    }
+}
