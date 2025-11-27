@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_ip"
+        android:title="IP Checker"
+        android:icon="@drawable/ic_ip" />
+
+    <item
+        android:id="@+id/nav_news"
+        android:title="CyberNews"
+        android:icon="@drawable/ic_news" />
+
+    <item
+        android:id="@+id/nav_guide"
+        android:title="Poradnik"
+        android:icon="@drawable/ic_guide" />
+
+    <item
+        android:id="@+id/nav_email"
+        android:title="Email Leak"
+        android:icon="@drawable/ic_email" />
+
+    <item
+        android:id="@+id/nav_password"
+        android:title="Hasło"
+        android:icon="@drawable/ic_password" />
+
+</menu>

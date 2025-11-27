@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Poradnik Cyberbezpieczeństwa"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- 1 -->
+        <Space android:layout_height="16dp" android:layout_width="match_parent"/>
+        <TextView
+            android:text="1. Silne i unikalne hasła"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="• Używaj minimum 12 znaków.
+• Mieszaj małe i duże litery, cyfry i symbole.
+• Nie używaj jednego hasła do wielu kont.
+• Rozważ menedżer haseł."
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- 2 -->
+        <Space android:layout_height="20dp" android:layout_width="match_parent"/>
+        <TextView
+            android:text="2. Włącz uwierzytelnianie dwuskładnikowe (2FA)"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="• Dodaje dodatkową warstwę ochrony.
+• Najbezpieczniejsze formy to aplikacje (Google Authenticator, Authy) lub klucze U2F.
+• Unikaj SMS–ów jako jedynego zabezpieczenia."
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- 3 -->
+        <Space android:layout_height="20dp" android:layout_width="match_parent"/>
+        <TextView
+            android:text="3. Uważaj na phishing"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="• Nie klikaj w podejrzane linki z e-maila/SMS.
+• Sprawdzaj nadawcę, domenę oraz treść komunikatu.
+• Banki nigdy nie proszą o podanie hasła przez maila."
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- 4 -->
+        <Space android:layout_height="20dp" android:layout_width="match_parent"/>
+        <TextView
+            android:text="4. Aktualizuj system i aplikacje"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="• Aktualizacje łatają luki bezpieczeństwa.
+• Nie odkładaj ich na później.
+• Regularnie restartuj urządzenia."
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- 5 -->
+        <Space android:layout_height="20dp" android:layout_width="match_parent"/>
+        <TextView
+            android:text="5. Korzystaj z VPN w publicznych Wi-Fi"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="• Publiczne sieci są narażone na podsłuch.
+• VPN szyfruje połączenie i ukrywa Twój IP.
+• Unikaj logowania do banku bez VPN."
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- 6 -->
+        <Space android:layout_height="20dp" android:layout_width="match_parent"/>
+        <TextView
+            android:text="6. Pilnuj swoich danych osobowych"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="• Nie podawaj PESEL, numeru dowodu, adresu bez potrzeby.
+• Sprawdzaj, komu udostępniasz zdjęcia i dokumenty.
+• Uważaj na fałszywe konkursy i ankiety."
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- 7 -->
+        <Space android:layout_height="20dp" android:layout_width="match_parent"/>
+        <TextView
+            android:text="7. Bezpieczne korzystanie z mediów społecznościowych"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="• Ustaw profile jako prywatne.
+• Nie udostępniaj lokalizacji w czasie rzeczywistym.
+• Chroń swoje zdjęcia przed publicznym dostępem."
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- 8 -->
+        <Space android:layout_height="20dp" android:layout_width="match_parent"/>
+        <TextView
+            android:text="8. Rób kopie zapasowe"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="• Zabezpiecza to dane przed ransomware.
+• Wykorzystuj chmurę lub zewnętrzne dyski.
+• Kopie rób przynajmniej raz w miesiącu."
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Space android:layout_height="40dp" android:layout_width="match_parent"/>
+
+    </LinearLayout>
+
+</ScrollView>
