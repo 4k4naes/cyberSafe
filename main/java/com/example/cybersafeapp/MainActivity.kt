@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        // domyślny ekran startowy
         bottomNav.selectedItemId = R.id.nav_ip
     }
 

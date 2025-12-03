@@ -16,7 +16,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <!-- 1 -->
         <Space android:layout_height="16dp" android:layout_width="match_parent"/>
         <TextView
             android:text="1. Silne i unikalne hasła"
@@ -34,7 +33,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- 2 -->
         <Space android:layout_height="20dp" android:layout_width="match_parent"/>
         <TextView
             android:text="2. Włącz uwierzytelnianie dwuskładnikowe (2FA)"
@@ -51,7 +49,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- 3 -->
         <Space android:layout_height="20dp" android:layout_width="match_parent"/>
         <TextView
             android:text="3. Uważaj na phishing"
@@ -68,7 +65,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- 4 -->
         <Space android:layout_height="20dp" android:layout_width="match_parent"/>
         <TextView
             android:text="4. Aktualizuj system i aplikacje"
@@ -85,7 +81,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- 5 -->
         <Space android:layout_height="20dp" android:layout_width="match_parent"/>
         <TextView
             android:text="5. Korzystaj z VPN w publicznych Wi-Fi"
@@ -102,7 +97,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- 6 -->
         <Space android:layout_height="20dp" android:layout_width="match_parent"/>
         <TextView
             android:text="6. Pilnuj swoich danych osobowych"
@@ -119,7 +113,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- 7 -->
         <Space android:layout_height="20dp" android:layout_width="match_parent"/>
         <TextView
             android:text="7. Bezpieczne korzystanie z mediów społecznościowych"
@@ -136,7 +129,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- 8 -->
         <Space android:layout_height="20dp" android:layout_width="match_parent"/>
         <TextView
             android:text="8. Rób kopie zapasowe"

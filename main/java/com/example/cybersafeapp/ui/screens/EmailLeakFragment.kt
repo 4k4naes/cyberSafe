@@ -1,7 +1,6 @@
 package com.example.cybersafeapp.ui.screens
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +17,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.security.MessageDigest
 
+// TODO: nie dziala api cale do poprawy
 class EmailLeakFragment : Fragment() {
 
     private val client = OkHttpClient()
@@ -28,7 +28,6 @@ class EmailLeakFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Łączymy fragment z XML
         return inflater.inflate(R.layout.fragment_email_leak, container, false)
     }
 
@@ -38,7 +37,7 @@ class EmailLeakFragment : Fragment() {
         val resultText = view.findViewById<TextView>(R.id.result_text)
 
         checkButton.setOnClickListener {
-            val password = passwordInput.text.toString()
+            val password = passwordInput.text.toString().trim()
 
             if (password.isEmpty()) {
                 resultText.text = "Wpisz hasło!"
@@ -46,51 +45,57 @@ class EmailLeakFragment : Fragment() {
             }
 
             scope.launch {
-                val count = checkPassword(password)
-                resultText.text = if (count > 0) {
-                    "Twoje hasło wyciekło $count razy!"
-                } else {
-                    "Twoje hasło nie znajduje się w znanych wyciekach."
+                resultText.text = "Sprawdzanie w HIBP..."
+                val leakCount = checkPasswordHIBP(password)
+
+                resultText.text = when {
+                    leakCount > 0 -> "Hasło wyciekło $leakCount razy!"
+                    leakCount == 0 -> "Nie znaleziono hasła w żadnych wyciekach."
+                    else -> "Błąd połączenia z API."
                 }
             }
         }
     }
 
-    private fun sha1(input: String): String {
-        val bytes = MessageDigest.getInstance("SHA-1")
-            .digest(input.toByteArray(Charsets.UTF_8))
-        return bytes.joinToString("") { "%02X".format(it) }
-    }
+    private suspend fun checkPasswordHIBP(password: String): Int =
+        withContext(Dispatchers.IO) {
+            try {
+                val sha1 = sha1(password).uppercase()
+                val prefix = sha1.substring(0, 5)
+                val suffix = sha1.substring(5)
 
-    private suspend fun checkPassword(password: String): Int = withContext(Dispatchers.IO) {
-        val hash = sha1(password)
-        val prefix = hash.substring(0, 5)
-        val suffix = hash.substring(5)
+                val request = Request.Builder()
+                    .url("https://api.pwnedpasswords.com/range/$prefix")
+                    .header("User-Agent", "CybersafeApp/1.0")
+                    .build()
 
-        val request = Request.Builder()
-            .url("https://api.pwnedpasswords.com/range/$prefix")
-            .build()
+                val response = client.newCall(request).execute()
+                if (!response.isSuccessful) return@withContext -1
 
-        try {
-            client.newCall(request).execute().use { response ->
-                if (!response.isSuccessful) return@withContext 0
-                val body = response.body?.string() ?: return@withContext 0
+                val body = response.body?.string() ?: return@withContext -1
+                val lines = body.split("\n")
 
-                body.lines().forEach { line ->
+                for (line in lines) {
                     val parts = line.split(":")
                     if (parts.size == 2) {
-                        val hashPart = parts[0]
-                        val countPart = parts[1]
-                        if (hashPart.equals(suffix, ignoreCase = true)) {
-                            return@withContext countPart.toIntOrNull() ?: 0
+                        val hashSuffix = parts[0]
+                        val count = parts[1].toIntOrNull() ?: 0
+                        if (hashSuffix.equals(suffix, ignoreCase = true)) {
+                            return@withContext count
                         }
                     }
                 }
+
+                return@withContext 0
+            } catch (e: Exception) {
+                e.printStackTrace()
+                return@withContext -1
             }
-        } catch (e: Exception) {
-            Log.e("EmailLeakFragment", "Błąd API", e)
         }
 
-        return@withContext 0
+    private fun sha1(input: String): String {
+        val digest = MessageDigest.getInstance("SHA-1")
+        val bytes = digest.digest(input.toByteArray())
+        return bytes.joinToString(separator = "") { byte -> String.format("%02x", byte) }
     }
 }
