@@ -1,18 +1,26 @@
 package com.example.cybersafeapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.example.cybersafeapp.ui.screens.CyberNewsFragment
 import com.example.cybersafeapp.ui.screens.EmailLeakFragment
 import com.example.cybersafeapp.ui.screens.GuideFragment
 import com.example.cybersafeapp.ui.screens.IpCheckerFragment
 import com.example.cybersafeapp.ui.screens.PasswordGeneratorFragment
+import com.example.cybersafeapp.ui.screens.SettingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        if (SettingsFragment.isDarkMode(this)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -25,6 +33,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_guide -> loadFragment(GuideFragment())
                 R.id.nav_email -> loadFragment(EmailLeakFragment())
                 R.id.nav_password -> loadFragment(PasswordGeneratorFragment())
+                R.id.nav_settings -> loadFragment(SettingsFragment())
             }
             true
         }
