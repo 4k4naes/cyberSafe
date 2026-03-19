@@ -16,7 +16,7 @@ import com.example.cybersafeapp.R
 import java.net.InetAddress
 import java.util.regex.Pattern
 
-// na 90% nie bedzie pobieranie ip dzialac na telefonie ale tu dziala
+// na telefonie nie dziala na dane komórkowe, nie sprawdzi wiekszosci danych wtedy
 
 class IpCheckerFragment : Fragment() {
 
