@@ -30,6 +30,3 @@ Nawigacja realizowana przez `BottomNavigationView`.
 1. Otwórz projekt w Android Studio
 2. Zbuduj projekt
 3. Uruchom na emulatorze lub urządzeniu
-
-## Uwagi
-Motyw (ciemny/jasny) ustawiany jest na podstawie preferencji użytkownika w `SettingsFragment`.
